@@ -1,0 +1,15 @@
+{
+    "gpus": [
+      {
+        "id": "gpu_local_1",
+        "model": "NVIDIA RTX 3080",
+        "networkAddress": "localhost"
+      },
+      {
+        "id": "gpu_remote_1",
+        "model": "NVIDIA Tesla V100",
+        "networkAddress": "192.168.1.100"
+      }
+    ]
+  }
+  
