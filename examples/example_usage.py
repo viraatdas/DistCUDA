@@ -1,7 +1,7 @@
-import distcuda
+import distcuda.client.api
 
 # Initialize with the configuration file
-distcuda.init('path/to/distcuda_config.json')
+distcuda.client.api.init('path/to/distcuda_config.json')
 
 @distcuda.task
 def my_gpu_task(data):
