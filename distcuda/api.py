@@ -26,9 +26,6 @@ class Device:
         
         self.num_gpus = -1
         self.average_latency = -1 # todo: implement for scheduling purpose
-
-        self.register()
-
     
     def register(self, connection_type: str = "ssh", gpu_type: str = "cuda"):
         """
@@ -85,7 +82,7 @@ class DistCuda:
 
         Example configuration file:
         {
-            "gpus": [
+            "devices": [
                 {
                     "name": "gpu_local_1",
                     "description": "NVIDIA RTX 3080",
@@ -111,7 +108,21 @@ class DistCuda:
         with open(config_path, 'r') as file:
             config = json.load(file)
         
-        gpus = config["gpus"]
+        self.valid_devices = []
+        devices = config["devices"]
+        
+
+        for d in devices:
+            device = Device(name=d.name, 
+                            description=d.description, 
+                            network_address=d.network_address)
+
+            success = device.register()
+            if success:
+                self.valid_devices.append(device)
+
+
+
         
     
     def train(
@@ -137,7 +148,17 @@ class DistCuda:
         Returns:
             None
         """
-        pass
+        chunk_size = len(dataloader.dataset) // self.num_gpus
+        chunks = []
+        for i in range(self.num_gpus):
+            start_idx = i * chunk_size
+            end_idx = (i + 1) * chunk_size if i < self.num_gpus - 1 else len(dataloader.dataset)
+            chunks.append((start_idx, end_idx))
+
+        # Initialize a list to store the local models and optimizers for each GPU
+        local_models = []
+        local_optimizers = []
+        
 
         
 
