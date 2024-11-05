@@ -5,6 +5,7 @@ import os
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
+from typing import Callable
 
 
 CONNECTION_TYPES = ["ssh"]
@@ -111,8 +112,31 @@ class DistCuda:
             config = json.load(file)
         
         gpus = config["gpus"]
+        
     
-    def train(self, model: nn.Module, dataloader: DataLoader):
+    def train(
+        self,
+        model: nn.Module,
+        dataloader: torch.utils.data.DataLoader,
+        optimizer: torch.optim.Optimizer = None,
+        criterion: Callable = None,
+        num_epochs: int = 10,
+        batch_size: int = 32
+    ) -> None:
+        """Train the model using distributed training.
+
+        Args:
+            model (nn.Module): The PyTorch model to be trained.
+            dataloader (DataLoader): The data loader for loading the dataset.
+            optimizer (Optimizer, optional): The optimizer to use. Defaults to None.
+            criterion (Callable, optional): The loss function to use. Defaults to None.
+            num_epochs (int, optional): The number of epochs to train for. Defaults to 10.
+            device (str, optional): The device to use for training (e.g., 'cpu', 'cuda'). Defaults to 'cpu'.
+            batch_size (int, optional): The batch size to use during training. Defaults to 32.
+
+        Returns:
+            None
+        """
         pass
 
         

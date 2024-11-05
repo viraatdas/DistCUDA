@@ -1,12 +1,9 @@
-import distcuda.api
+from distcuda.api import DistCuda
 
 # Initialize with the configuration file
-distcuda.api.init('path/to/distcuda_config.json')
+distcuda = DistCuda("path/to/distcuda_config.json")
 
-@distcuda.task
-def my_gpu_task(data):
-    # Your CUDA code here
-    return data * 2  # Example processing
+model = MyModel()
+dataloader = DataLoader()
 
-result = my_gpu_task(10)
-print(result)  # Should print 20
+distcuda.train(model, dataloader)
