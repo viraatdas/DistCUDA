@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package distcuda;
+
+service DistCuda {
+  rpc Train(TrainRequest) returns (TrainResponse) {}
+}
+
+message TrainRequest {
+  repeated GPU gpus = 1;
+  model ModelData data = 2;
+}
+
+message TrainResponse {
+  repeated float accuracy = 1;
+  repeated float loss = 2;
+}
+
+message GPU {
+  string name = 1;
+  string description = 2;
+  string network_address = 3;
+}
