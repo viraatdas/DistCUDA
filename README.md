@@ -6,12 +6,12 @@ DistCUDA enables Python developers to easily distribute and manage CUDA tasks ac
 
 By abstracting the complexities of network communication and task distribution, DistCUDA makes high-performance computing accessible to projects of all sizes.
 
-## (expected) Features
+## Features
 
-- **Automatic GPU Discovery**: Automatically detects and registers available GPUs on the network, simplifying resource management.
-- **Flexible Task Distribution**: Distributes computing tasks across multiple remote GPUs based on predefined rules or dynamic scheduling.
-- **Seamless Integration**: Works with existing Python codebases with minimal changes required, making it easy to adopt and integrate.
-- **Scalable and Efficient**: Designed for high scalability and efficiency, optimizing the usage of available GPU resources across the network.
+- [ ] **Automatic GPU Discovery**: Automatically detects and registers available GPUs on the specified network
+- [ ] **Flexible Task Distribution**: Distributes computing tasks across multiple remote GPUs based on predefined rules or dynamic scheduling.
+- [ ] **Seamless Integration**: Works with existing Python codebases with minimal changes required, making it easy to adopt and integrate.
+- [ ] **Scalable and Efficient**: Designed for high scalability and efficiency, optimizing the usage of available GPU resources across the network.
 
 ## Installation
 
