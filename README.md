@@ -2,9 +2,11 @@
 
 ![Python Test Workflow](https://github.com/viraatdas/DistCUDA/actions/workflows/python-test.yml/badge.svg) - _currently not setup_
 
-DistCUDA enables Python developers to easily distribute and manage CUDA tasks across multiple GPUs over a network, similar to how [Numba](https://github.com/numba/numba) simplifies GPU-accelerated computing on a local machine.
+DistCUDA allows Python developers to easily distribute and manage training or inference across multiple remote GPUs.
 
 By abstracting the complexities of network communication and task distribution, DistCUDA makes high-performance computing accessible to projects of all sizes.
+
+All you have to do is specify the network address of the machines that have GPUs, and then you can use the `distcuda` API which will seemlessly utilize all the GPUs specified. 
 
 ## Features
 
