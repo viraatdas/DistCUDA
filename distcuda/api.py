@@ -120,9 +120,6 @@ class DistCuda:
             success = device.register()
             if success:
                 self.valid_devices.append(device)
-
-
-
         
     
     def train(

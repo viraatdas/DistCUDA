@@ -8,6 +8,14 @@ By abstracting the complexities of network communication and task distribution, 
 
 All you have to do is specify the network address of the machines that have GPUs, and then you can use the `distcuda` API which will seemlessly utilize all the GPUs specified. 
 
+For example, you might want to use
+- A GPU in your local network
+- A GPU in a cloud provider (AWS/GCP)
+- A GPU in a university/research lab network
+- A GPU in a different geographic location
+
+all simultanouesly. DistCUDA solves that. 
+
 ## Features
 
 - [ ] **Automatic GPU Discovery**: Automatically detects and registers available GPUs on the specified network
